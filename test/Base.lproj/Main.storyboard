@@ -305,17 +305,17 @@
             </objects>
             <point key="canvasLocation" x="316.5" y="1049.5"/>
         </scene>
-        <!--Store-->
+        <!--Store Table View Controller-->
         <scene sceneID="dIJ-5W-hGa">
             <objects>
-                <tableViewController id="viK-T3-Jjz" customClass="Store" customModule="StackEm" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="viK-T3-Jjz" customClass="StoreTableViewController" customModule="StackEm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="RwP-Zz-nEw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dmg-OZ-oVs">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="storeItemCell" id="dmg-OZ-oVs">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dmg-OZ-oVs" id="aPb-LI-qX4">
