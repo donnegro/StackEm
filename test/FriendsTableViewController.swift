@@ -13,10 +13,15 @@ import Parse
 class FriendsTableViewController: PFQueryTableViewController {
     var frendToAddTextField:UITextField? = nil
     
-    required init(coder aDecoder: NSCoder){
-        super.init(coder: aDecoder)!
+    override init(style: UITableViewStyle, className: String!){
+        super.init(style: style, className: className)
+    }
+    
+    required init!(coder aDecoder: NSCoder){
+        super.init(coder: aDecoder)
+        
         self.parseClassName = "Friends"
-        self.textKey = "friedName"
+        self.textKey = "friendName"
         self.pullToRefreshEnabled = true
         self.paginationEnabled = false
     }
@@ -57,12 +62,8 @@ class FriendsTableViewController: PFQueryTableViewController {
 
     override func queryForTable() -> PFQuery {
         let query:PFQuery = PFQuery(className: "Friends")
-        
-        query.whereKey(getCurrentUserId()!, equalTo: "userId")
+        query.whereKey("userId", equalTo: getCurrentUserId()!)
         query.orderByAscending("friendName")
-        
-        NSLog("in query for table")
-        NSLog(query.description)
         
         return query
     }
@@ -80,39 +81,10 @@ class FriendsTableViewController: PFQueryTableViewController {
         
         return cell
     }
-    // MARK: - Table view data source
 
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
-//
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 1
-//    }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-
 
 }
