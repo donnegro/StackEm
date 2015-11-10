@@ -8,8 +8,14 @@
 
 import Foundation
 import Parse
+import UIKit
 
-func addFriend(friendUsername: String){
+func addFriend(friendUsername: String, tableView:FriendsTableViewController){
+    if(friendUsername == getCurrentUserName()!){
+        let alertController = generateAlertController("Cannot add self")
+        tableView.presentViewController(alertController, animated: true, completion: nil)
+        return
+    }
     let query:PFQuery = PFUser.query()!
     query.whereKey("username", equalTo: friendUsername)
     query.findObjectsInBackgroundWithBlock{(results, error) -> Void in
@@ -62,10 +68,15 @@ func addFriend(friendUsername: String){
                     friendRow.saveInBackgroundWithBlock{(success, error) -> Void in
                         if(success){
                             NSLog("friendship successfully for friend")
+                            let alertController = generateAlertController("Successfully added friend")
+                            tableView.presentViewController(alertController, animated: true, completion: nil)
+
                         }
                             
                         else{
                             NSLog("error saving the friendship for friend")
+                            let alertController = generateAlertController("Error saving friendship")
+                            tableView.presentViewController(alertController, animated: true, completion: nil)
                         }
                     }
                 }
@@ -73,6 +84,8 @@ func addFriend(friendUsername: String){
                 else{
                     // display alert view
                     NSLog("friendship already exists")
+                    let alertController = generateAlertController("Friend already exists")
+                    tableView.presentViewController(alertController, animated: true, completion: nil)
                 }
             
             }
@@ -81,6 +94,20 @@ func addFriend(friendUsername: String){
             
         else{
             NSLog("name does not exist")
+            
+            let alertController = generateAlertController("User does not exist")
+            tableView.presentViewController(alertController, animated: true, completion: nil)
         }
     }
+}
+
+func generateAlertController(textToDisplay:String) -> UIAlertController{
+    var alert = UIAlertController(title: textToDisplay, message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+    let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (action:UIAlertAction!) in
+      
+    }
+    
+    alert.addAction(okAction)
+    return alert
+
 }

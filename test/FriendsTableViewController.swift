@@ -24,6 +24,8 @@ class FriendsTableViewController: PFQueryTableViewController {
         self.textKey = "friendName"
         self.pullToRefreshEnabled = true
         self.paginationEnabled = false
+        self.navigationItem.title = "Friends List"
+        
     }
 
     
@@ -39,10 +41,10 @@ class FriendsTableViewController: PFQueryTableViewController {
     
     
     func addTapped(){
-        var alert = UIAlertController(title: "AddFriend", message: "Enter a username", preferredStyle: UIAlertControllerStyle.Alert)
+        var alert = UIAlertController(title: "Add Friend", message: "Enter a username", preferredStyle: UIAlertControllerStyle.Alert)
         let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.Default) { (action:UIAlertAction!) in
             NSLog("Adding friend: " + (self.frendToAddTextField?.text)!)
-            addFriend((self.frendToAddTextField?.text)!)
+            addFriend((self.frendToAddTextField?.text)!, tableView: self)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (action:UIAlertAction!) in
@@ -82,7 +84,26 @@ class FriendsTableViewController: PFQueryTableViewController {
         return cell
     }
 
-    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let object = tableView.cellForRowAtIndexPath(indexPath) as! PFTableViewCell
+        let name = object.textLabel!.text!
+        
+        let alert = UIAlertController(title: "Challenge", message: "Do you want to play " + name + "?", preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (action:UIAlertAction!) in
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (action:UIAlertAction!) in
+
+        }
+
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
     }

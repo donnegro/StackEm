@@ -15,18 +15,18 @@ class GS :GameViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBarHidden = true
+//        self.navigationController?.navigationBarHidden = true
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true
-    }
-    
-    override func viewWillDisappear(animated: Bool)
-    {
-        super.viewWillDisappear(animated)
-        self.navigationController?.navigationBarHidden = false
-    }
+//    
+//    override func viewWillAppear(animated: Bool) {
+//        self.navigationController?.navigationBarHidden = true
+//    }
+//    
+//    override func viewWillDisappear(animated: Bool)
+//    {
+//        super.viewWillDisappear(animated)
+//        self.navigationController?.navigationBarHidden = false
+//    }
 
     
 }

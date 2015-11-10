@@ -16,6 +16,7 @@ class Leaderboard: PFQueryTableViewController {
         self.textKey = "Score"
         self.pullToRefreshEnabled = true
         self.paginationEnabled = false
+        self.navigationItem.title = "Leaderboard"
     }
     
     
@@ -45,8 +46,8 @@ class Leaderboard: PFQueryTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         var cell:PFTableViewCell = tableView.dequeueReusableCellWithIdentifier("scoreCell") as! PFTableViewCell
         
-        cell.textLabel?.text = String(object?["Score"] as! Int) + " by " + ((object?["userName"])! as! String) as? String
-        
+        cell.textLabel?.text = String(object?["Score"] as! Int)
+        cell.detailTextLabel?.text = object?["userName"] as! String
     
         return cell
     }

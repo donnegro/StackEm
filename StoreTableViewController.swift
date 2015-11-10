@@ -12,6 +12,7 @@ class StoreTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Store"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -39,9 +40,10 @@ class StoreTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("storeItemCell", forIndexPath: indexPath)
-
+        
         // Configure the cell...
         cell.textLabel?.text = "Dummy item " + String(indexPath.row + 1)
+        cell.detailTextLabel?.text = "$XX.XX"
         return cell
     }
 
