@@ -9,6 +9,7 @@
 import UIKit
 import ParseUI
 import Parse
+import SpriteKit
 
 class FriendsTableViewController: PFQueryTableViewController {
     var frendToAddTextField:UITextField? = nil
@@ -45,6 +46,10 @@ class FriendsTableViewController: PFQueryTableViewController {
         let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.Default) { (action:UIAlertAction!) in
             NSLog("Adding friend: " + (self.frendToAddTextField?.text)!)
             addFriend((self.frendToAddTextField?.text)!, tableView: self)
+            // for refreshing after add 
+            //dispatch_async(dispatch_get_main_queue(), {() -> Void in
+              //  self.tableView.reloadData()
+           // }  )
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (action:UIAlertAction!) in
@@ -90,6 +95,51 @@ class FriendsTableViewController: PFQueryTableViewController {
         
         let alert = UIAlertController(title: "Challenge", message: "Do you want to play " + name + "?", preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (action:UIAlertAction!) in
+            let pfQuery:PFQuery = PFQuery(className: "Challenge")
+            pfQuery.whereKey("challenger", equalTo: getCurrentUserName()!)
+            pfQuery.whereKey("friend", equalTo: name)
+            pfQuery.findObjectsInBackgroundWithBlock{(results, error) in
+                if(error == nil && results?.count == 0){
+                    let userName = getCurrentUserName()
+                    let pfObjectUser = PFObject(className: "Challenge")
+                    pfObjectUser.setObject(userName!, forKey: "challenger")
+                    pfObjectUser.setObject(name, forKey: "friend")
+                    
+                    // save the challenge in the backend
+                    pfObjectUser.saveInBackgroundWithBlock{(success, error) in
+                        if (success){
+                            NSLog("challenge saved for user")
+                        }
+                            
+                        else{
+                            NSLog("challenge saved for friend")
+                        }
+                    }
+                    
+                    
+                    let pfObjectFriend = PFObject(className: "Challenge")
+                    pfObjectFriend.setObject(name, forKey: "challenger")
+                    pfObjectFriend.setObject(userName!, forKey: "friend")
+                    
+                    pfObjectFriend.saveInBackgroundWithBlock{(success, error) in
+                        if (success){
+                            NSLog("challenge saved for friend")
+                        }
+                            
+                        else{
+                            NSLog("challenge saved for user")
+                        }
+                        
+                    }
+
+                
+                }
+                
+                else{
+                    NSLog("challenge already in there")
+                }
+            
+            }
             
         }
         

@@ -16,3 +16,7 @@ func getCurrentUserId() -> String?{
 func getCurrentUserName() -> String?{
     return PFUser.currentUser()?.username
 }
+
+func getCurrentUserCurrency() -> Int{
+    return PFUser.currentUser()?.objectForKey("currency") as! Int
+}

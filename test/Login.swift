@@ -40,8 +40,8 @@ class Login :UIViewController, UITextFieldDelegate {
                 spinner.stopAnimating()
                 
                 if ((user) != nil) {
-                    var alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
-                    alert.show()
+                    //var alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
+                  //  alert.show()
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home") as! UIViewController

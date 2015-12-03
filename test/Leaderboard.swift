@@ -3,7 +3,6 @@ import ParseUI
 import Parse
 
 class Leaderboard: PFQueryTableViewController {
-    var frendToAddTextField:UITextField? = nil
     
     override init(style: UITableViewStyle, className: String!){
         super.init(style: style, className: className)
