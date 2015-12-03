@@ -185,7 +185,7 @@
                                     <segue destination="RmP-o5-cmz" kind="show" id="z2R-i4-m0s"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="title.png" translatesAutoresizingMaskIntoConstraints="NO" id="bBc-FE-ptd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gameName.png" translatesAutoresizingMaskIntoConstraints="NO" id="bBc-FE-ptd">
                                 <rect key="frame" x="20" y="82" width="335" height="106"/>
                                 <animations/>
                             </imageView>
@@ -527,10 +527,18 @@
                                     <segue destination="RiD-FU-u5Q" kind="show" id="GUB-yj-t9n"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="title.png" translatesAutoresizingMaskIntoConstraints="NO" id="eRr-o6-uVw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gameName.png" translatesAutoresizingMaskIntoConstraints="NO" id="eRr-o6-uVw">
                                 <rect key="frame" x="77" y="138" width="220" height="96"/>
                                 <animations/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQu-K3-T8y">
+                                <rect key="frame" x="84" y="529" width="206" height="44"/>
+                                <animations/>
+                                <state key="normal" image="bck2login.png"/>
+                                <connections>
+                                    <segue destination="ohY-fs-GNP" kind="unwind" unwindAction="unwindToLogInScreen:" id="k46-st-cTX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -695,6 +703,7 @@
         <image name="easy.png" width="79" height="33"/>
         <image name="email.png" width="96" height="33"/>
         <image name="friends.png" width="202" height="45"/>
+        <image name="gameName.png" width="637" height="95"/>
         <image name="hard.png" width="78" height="33"/>
         <image name="ldrboard.png" width="316" height="45"/>
         <image name="login.png" width="242" height="64"/>
@@ -706,10 +715,9 @@
         <image name="signup.png" width="400" height="79"/>
         <image name="signupsmall.png" width="303" height="64"/>
         <image name="store.png" width="156" height="45"/>
-        <image name="title.png" width="637" height="95"/>
         <image name="usr.png" width="155" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5qW-Ks-aga"/>
+        <segue reference="GUB-yj-t9n"/>
     </inferredMetricsTieBreakers>
 </document>

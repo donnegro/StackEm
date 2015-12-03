@@ -44,9 +44,7 @@
 		697DA7AF1C0D757700438C30 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 697DA7A71C0D757700438C30 /* settings.png */; };
 		697DA7B01C0D757700438C30 /* ldrboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 697DA7A81C0D757700438C30 /* ldrboard.png */; };
 		697DA7B11C0D757700438C30 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 697DA7A91C0D757700438C30 /* friends.png */; };
-		697DA7B31C0E6ABE00438C30 /* gameName.png in Resources */ = {isa = PBXBuildFile; fileRef = 697DA7B21C0E6ABE00438C30 /* gameName.png */; };
 		69C25B1B1C0F60E600EBDD2E /* signup.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C25B1A1C0F60E600EBDD2E /* signup.png */; };
-		69C25B1D1C0F619700EBDD2E /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C25B1C1C0F619700EBDD2E /* title.png */; };
 		69C25B1F1C0F626100EBDD2E /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C25B1E1C0F626100EBDD2E /* login.png */; };
 		69C25B211C0F62B500EBDD2E /* signupsmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C25B201C0F62B500EBDD2E /* signupsmall.png */; };
 		69C25B231C0F634200EBDD2E /* rstpass.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C25B221C0F634200EBDD2E /* rstpass.png */; };
@@ -66,6 +64,8 @@
 		69C25B471C0FE68C00EBDD2E /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C25B461C0FE68C00EBDD2E /* Board.swift */; };
 		69C25B491C0FE6D200EBDD2E /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C25B481C0FE6D200EBDD2E /* Tile.swift */; };
 		69C25B4B1C0FE71100EBDD2E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C25B4A1C0FE71100EBDD2E /* Utils.swift */; };
+		69C25B4D1C10359E00EBDD2E /* gameName.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C25B4C1C10359E00EBDD2E /* gameName.png */; };
+		69C25B4F1C103D3500EBDD2E /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C25B4E1C103D3500EBDD2E /* GameOverScene.swift */; };
 		AB8D62E61BF11F64005C6B58 /* FriendUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D62E51BF11F64005C6B58 /* FriendUtils.swift */; };
 		AB8D62E81BF12C7D005C6B58 /* UserUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D62E71BF12C7D005C6B58 /* UserUtils.swift */; };
 		AB8D62EA1BF1528D005C6B58 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB8D62E91BF1528D005C6B58 /* ParseUI.framework */; };
@@ -139,9 +139,7 @@
 		697DA7A71C0D757700438C30 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		697DA7A81C0D757700438C30 /* ldrboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ldrboard.png; sourceTree = "<group>"; };
 		697DA7A91C0D757700438C30 /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friends.png; sourceTree = "<group>"; };
-		697DA7B21C0E6ABE00438C30 /* gameName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameName.png; sourceTree = "<group>"; };
 		69C25B1A1C0F60E600EBDD2E /* signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signup.png; sourceTree = "<group>"; };
-		69C25B1C1C0F619700EBDD2E /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
 		69C25B1E1C0F626100EBDD2E /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		69C25B201C0F62B500EBDD2E /* signupsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signupsmall.png; sourceTree = "<group>"; };
 		69C25B221C0F634200EBDD2E /* rstpass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rstpass.png; sourceTree = "<group>"; };
@@ -161,6 +159,8 @@
 		69C25B461C0FE68C00EBDD2E /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		69C25B481C0FE6D200EBDD2E /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		69C25B4A1C0FE71100EBDD2E /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		69C25B4C1C10359E00EBDD2E /* gameName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameName.png; sourceTree = "<group>"; };
+		69C25B4E1C103D3500EBDD2E /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		AB8D62E51BF11F64005C6B58 /* FriendUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendUtils.swift; path = ../FriendUtils.swift; sourceTree = "<group>"; };
 		AB8D62E71BF12C7D005C6B58 /* UserUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUtils.swift; sourceTree = "<group>"; };
 		AB8D62E91BF1528D005C6B58 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -267,7 +267,6 @@
 				AB8D62E71BF12C7D005C6B58 /* UserUtils.swift */,
 				ABA44B921BF15F47005F0182 /* FriendsTableViewController.swift */,
 				695E62071BD9C5C4003FBFE9 /* AppDelegate.swift */,
-				697DA7B21C0E6ABE00438C30 /* gameName.png */,
 				695E620B1BD9C5C4003FBFE9 /* GameScene.swift */,
 				ABE92BAB1BF2BE91006CB67B /* Block.swift */,
 				ABE92BAD1BF2BEA7006CB67B /* LosingScene.swift */,
@@ -277,6 +276,7 @@
 				69C25B421C0F777600EBDD2E /* dif1.png */,
 				ABE92BB51BF2E545006CB67B /* hit.png */,
 				69C25B1E1C0F626100EBDD2E /* login.png */,
+				69C25B4C1C10359E00EBDD2E /* gameName.png */,
 				69C25B401C0F769000EBDD2E /* hard.png */,
 				695E62391BD9C693003FBFE9 /* purple@2x.png */,
 				69C25B3C1C0F767B00EBDD2E /* easy.png */,
@@ -286,7 +286,6 @@
 				697DA7A31C0D757700438C30 /* store.png */,
 				69C25B261C0F647100EBDD2E /* usr.png */,
 				69C25B2A1C0F66E100EBDD2E /* email.png */,
-				69C25B1C1C0F619700EBDD2E /* title.png */,
 				697DA7A41C0D757700438C30 /* challenges.png */,
 				697DA7A51C0D757700438C30 /* Play.png */,
 				69C25B221C0F634200EBDD2E /* rstpass.png */,
@@ -312,6 +311,7 @@
 				69C25B461C0FE68C00EBDD2E /* Board.swift */,
 				69C25B481C0FE6D200EBDD2E /* Tile.swift */,
 				69C25B4A1C0FE71100EBDD2E /* Utils.swift */,
+				69C25B4E1C103D3500EBDD2E /* GameOverScene.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -440,14 +440,12 @@
 				69C25B2B1C0F66E100EBDD2E /* email.png in Resources */,
 				ABE92BA81BF2BB40006CB67B /* test.caf in Resources */,
 				69C25B411C0F769000EBDD2E /* hard.png in Resources */,
-				69C25B1D1C0F619700EBDD2E /* title.png in Resources */,
 				697DA7B01C0D757700438C30 /* ldrboard.png in Resources */,
 				697DA7AB1C0D757700438C30 /* store.png in Resources */,
 				69C25B271C0F647100EBDD2E /* usr.png in Resources */,
 				69C25B231C0F634200EBDD2E /* rstpass.png in Resources */,
 				695E62161BD9C5C4003FBFE9 /* LaunchScreen.storyboard in Resources */,
 				697DA7AC1C0D757700438C30 /* challenges.png in Resources */,
-				697DA7B31C0E6ABE00438C30 /* gameName.png in Resources */,
 				695E623A1BD9C693003FBFE9 /* purple@2x.png in Resources */,
 				69C25B3D1C0F767B00EBDD2E /* easy.png in Resources */,
 				697DA7AE1C0D757700438C30 /* music.png in Resources */,
@@ -465,6 +463,7 @@
 				69C25B3B1C0F765800EBDD2E /* dif.png in Resources */,
 				69C25B311C0F68C500EBDD2E /* bck2login.png in Resources */,
 				69C25B291C0F64AF00EBDD2E /* pass.png in Resources */,
+				69C25B4D1C10359E00EBDD2E /* gameName.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +498,7 @@
 				69C25B371C0F6B7300EBDD2E /* StorePFTableViewController.swift in Sources */,
 				69C25B451C0FE5E100EBDD2E /* Array2D.swift in Sources */,
 				AB8D62E81BF12C7D005C6B58 /* UserUtils.swift in Sources */,
+				69C25B4F1C103D3500EBDD2E /* GameOverScene.swift in Sources */,
 				ABE92BAE1BF2BEA7006CB67B /* LosingScene.swift in Sources */,
 				69C25B491C0FE6D200EBDD2E /* Tile.swift in Sources */,
 				6958E3011BE14EED00461ABA /* Leaderboard.swift in Sources */,

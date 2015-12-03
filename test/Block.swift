@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class Block: CustomStringConvertible, Hashable, Equatable {
+class Block: CustomStringConvertible {
     
     // MARK: - PROPERTIES
     /****************************************************************************/
@@ -31,10 +31,6 @@ class Block: CustomStringConvertible, Hashable, Equatable {
         return "Block row: " + rowString + " and Block column: " + colString
     }
     
-    var hashValue:Int {
-        return (row * 10) + column
-    }
-    
     // MARK: - INITIALIZERS
     /****************************************************************************/
     /****************************************************************************/
@@ -55,24 +51,4 @@ class Block: CustomStringConvertible, Hashable, Equatable {
     /****************************************************************************/
     
     // MARK: - Public Instance Methods
-    
-    func getRow() -> Int {
-        return self.row
-    }
-    
-    func getColumn() -> Int {
-        return self.column
-    }
-    
-    func setRow(row:Int) {
-        self.row = row
-    }
-    
-    func setColumn(column:Int) {
-        self.column = column
-    }
-}
-
-func ==(lhs: Block, rhs: Block) -> Bool {
-    return lhs.column == rhs.column && lhs.row == rhs.row
 }

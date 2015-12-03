@@ -18,7 +18,9 @@ class GameScene: SKScene {
     
     var currentNumberOfBlocks = 4
     
-    var direction = CGFloat(1)
+    var score = 0
+    var label:SKLabelNode = SKLabelNode(fontNamed: "AvenirNext-Heavy")
+    
     var start = false
     var stop = false
     
@@ -57,6 +59,12 @@ class GameScene: SKScene {
         self.boardLayer.position = layerPosition
         self.gameLayer.addChild(boardLayer)
         self.boardLayer.addChild(blockLayer)
+        
+        label.text = String(self.score)
+        label.fontSize = 40
+        label.fontColor = SKColor.redColor()
+        label.position = CGPointMake(0, -self.size.height/2)
+        self.addChild(label)
     }
     
     /////////////////////////// PUBLIC INSTANCE METHODS //////////////////////////
@@ -104,12 +112,9 @@ class GameScene: SKScene {
         // The number of sprites depends on numberOfNodesForRow
         
         if (start == true) {
-            for i in 0..<4 {
+            for i in 0..<self.currentNumberOfBlocks {
                 // Reposition the current blocks so that they are in the center of a tile
                 let (rowForBlock, columnForBlock) = convertPoint(CGPointMake((currentBlocks[i]?.sprite?.position.x)!, (currentBlocks[i]?.sprite?.position.y)!))
-                
-                //print(rowForBlock)
-                //print(columnForBlock)
                 
                 // Retreive the corresponding tile for rowForBlock and columnForBlock
                 let currentTile = board.tileAt(rowForBlock, column: columnForBlock)
@@ -117,19 +122,60 @@ class GameScene: SKScene {
                 // Reposition the block to the middle x and y for tile
                 currentBlocks[i]?.sprite?.position.x = pointForTile(currentTile).x
                 
-                // Add block to said tile
-                
-                // Add that the tile is being occupied (change boolean value)
-                currentTile.occupied = true
-                
-                // Save currentBlocks to Array and create a new set of blocks
+                // Before saving block to tile, there must be a block in the tile underneath it (with the exception of the very bottom row)
+                if (currentRow == 9) {
+                    // Add that the tile is being occupied (change boolean value)
+                    currentTile.occupied = true
+                    
+                    // Save each block in currentBlocks to respective tile
+                    currentTile.addBlock(currentBlocks[i]!)
+                } else {
+                    // Not the bottom row
+                    // Only add if there is a block in the tile underneath it
+                    if (!board.tileAt(currentRow + 1, column: currentTile.column).occupied) {
+                        // Delete the sprite from the screen
+                        currentBlocks[i]?.sprite?.removeFromParent()
+                        self.currentNumberOfBlocks--
+                        
+                        if (self.currentNumberOfBlocks == 0) {
+                            //print("YOU LOSE")
+                            //print(score)
+                            stop = true
+                            
+                            let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+                            let scene = GameOverScene(size: self.size, score:self.score)
+                            self.view?.presentScene(scene, transition: reveal)
+                        }
+                    } else {
+                        // Add that the tile is being occupied (change boolean value)
+                        currentTile.occupied = true
+                        
+                        // Save each block in currentBlocks to respective tile
+                        currentTile.addBlock(currentBlocks[i]!)
+                    }
+                }
             }
             
-            self.currentRow--
+            self.score = self.score + ((currentRow - 9)*(-10))
             
-            if (self.currentRow < 0) {
-                stop = true
-                print("YOU WIN")
+            if (stop == false) {
+                self.currentRow--
+                if (currentDirection < 0) {
+                    currentDirection -= 3.0
+                } else {
+                    currentDirection += 3.0
+                }
+                
+                if (self.currentRow < 0) {
+                    stop = true
+                    //print("YOU WIN")
+                    //print(score)
+                    self.score = 4000
+                    
+                    let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+                    let scene = GameOverScene(size: self.size, score:self.score)
+                    self.view?.presentScene(scene, transition: reveal)
+                }
             }
         }
         
@@ -151,34 +197,29 @@ class GameScene: SKScene {
         }
     }
     
-    //    func populateBoolGrid(row:Int, column:Int){
-    //        boolBlocks[row, column] = true
-    //    }
-    
-    //    func checkGrid(row:Int) -> Bool{
-    //        var valid:Bool = false
-    //        var numValid:Int = 0
-    ////        NSLog(curBlocks.description)
-    //        for(var i = 0; i < curBlocks.count; i++){
-    ////            NSLog("Checking grid " + curBlocks[i].column.description + "  row " + row.description)
-    //
-    //            if(boolBlocks[curBlocks[i].column, row - 1] == true){
-    //                valid = true
-    //                numValid += 1
-    //            }
-    //        }
-    //        return valid
-    //    }
-    
     override func update(currentTime: NSTimeInterval) {
+        self.label.text = String(self.score)
         if (self.start == true && stop == false) {
-            for i in 0..<4 {
+            for i in 0..<self.currentNumberOfBlocks {
                 let currentBlock = self.currentBlocks[i]
                 
                 let currentBlockSprite = currentBlock!.sprite
                 
                 if (currentBlockSprite?.position.x <= 350 && currentBlockSprite?.position.x >= self.tileSize.width / 2) {
                     currentBlockSprite?.position.x = (currentBlockSprite?.position.x)! + currentDirection
+                    
+                    if currentBlockSprite?.position.x > 350 {
+                        var difference = (currentBlockSprite?.position.x)! - 350
+                        currentBlockSprite?.position.x = 350
+                        currentDirection = -1*currentDirection
+                        
+                        // Shift all other nodes by the difference
+                        for j in 0..<self.currentNumberOfBlocks-1 {
+                            var currentBlock = self.currentBlocks[j]
+                            let currentBlockSprite = currentBlock!.sprite
+                            currentBlockSprite?.position.x -= difference
+                        }
+                    }
                 } else {
                     currentDirection = -1*currentDirection
                     currentBlockSprite?.position.x = (currentBlockSprite?.position.x)! + currentDirection

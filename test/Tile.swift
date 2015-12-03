@@ -25,6 +25,7 @@ class Tile {
     let column:Int
     
     var occupied:Bool
+    var block:Block?
     
     // MARK: Computed Properties
     
@@ -39,6 +40,7 @@ class Tile {
         self.row    = row
         self.column = column
         self.occupied = false
+        self.block = nil
     }
     
     // MARK: - INSTANCE METHODS
@@ -49,4 +51,8 @@ class Tile {
     /****************************************************************************/
     
     // MARK: - Public Instance Methods
+    
+    func addBlock(block:Block) {
+        self.block = block
+    }
 }
